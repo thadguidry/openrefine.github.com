@@ -22,7 +22,7 @@ You will need to write a `pom.xml` in the root folder of your extension to confi
 
 For any library that your extension depends on, you should try to find a matching artifact in the Maven Central repository. If you can find such an artifact, delete the `.jar` file from your extension and add the dependency in your `pom.xml` file. If you cannot find such an artifact, it is still possible to incorporate your own `.jar` file using `maven-install-plugin` that you can configure in your `pom.xml` file as follows:
 
-```
+```xml
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-install-plugin</artifactId>
@@ -51,11 +51,13 @@ For any library that your extension depends on, you should try to find a matchin
 
 And add the dependency to the `<dependencies>` section as usual:
 
+```xml
      <dependency>
          <groupId>com.my.company</groupId>
          <artifactId>my-library</artifactId>
          <version>0.5.3-SNAPSHOT</version>
      </dependency>
+```
 
 ## Migrating to Wikimedia's i18n jQuery plugin {#migrating-to-wikimedias-i18n-jquery-plugin}
 
@@ -71,6 +73,7 @@ The migration was made between 3.1-beta and 3.1, with this commit: https://githu
 
 You will need to update your translation files, merging nested objets in one global object, concatenating keys. You can do this by running the following Python script on all your JSON translation files:
 
+```python
     import json
     import sys
 
@@ -91,10 +94,13 @@ You will need to update your translation files, merging nested objets in one glo
 
     with open(sys.argv[1], 'w') as f:
         f.write(json.dumps(result, ensure_ascii=False, indent=4))
+```
 
 Then your javascript files which retrieve the translated strings should be updated: `$.i18n._('core-dialogs')['cancel']` becomes `$.i18n('core-dialogs/cancel')`. You can do this with the following `sed` script:
 
+```shell
      sed -i "s/\$\.i18n._(['\"]\([A-Za-z0-9/_\\-]*\)['\"])\[['\"]\([A-Za-z0-9\-\_]*\)[\"']\]/$.i18n('\1\/\2')/g" my_javascript_file.js
+```
 
 You can then chase down the places where you are concatenating translated strings, and replace that with more flexible patterns using [the plugin's features](https://github.com/wikimedia/jquery.i18n#jqueryi18n-plugin).
 
@@ -129,13 +135,13 @@ Useful snippets to use in tests:
 * create an empty JSON object: `ParsingUtilities.mapper.createObjectNode()` (replaces `new JSONObject()`);
 * create an empty JSON array: `ParsingUtilities.mapper.createArrayNode()` (replaces `new JSONArray()`).
 
-Before undertaking the migration, we recommend that you write some tests which serialize and deserialize your objects. This will help you make sure that the JSON format is preserved during the migration. One way to do this is to collect some sample JSON representations of your objects, and check in your tests that deserializing these JSON payloads and serializing them back to JSON preserves the JSON payload. Some utilities are available to help you with that in [`TestUtils`](https://github.com/OpenRefine/OpenRefine/blob/master/main/tests/server/src/com/google/refine/tests/util/TestUtils.java) (we had [some to test org.json serialization](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/tests/server/src/com/google/refine/tests/util/TestUtils.java) before we got rid of the dependency, feel free to copy them).
+Before undertaking the migration, we recommend that you write some tests which serialize and deserialize your objects. This will help you make sure that the JSON format is preserved during the migration. One way to do this is to collect some sample JSON representations of your objects, and check in your tests that deserializing these JSON payloads and serializing them back to JSON preserves the JSON payload. Some utilities are available to help you with that in [`TestUtils`](https://github.com/OpenRefine/OpenRefine/blob/master/modules/core/src/test/java/com/google/refine/util/TestUtils.java) (we had [some to test org.json serialization](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/tests/server/src/com/google/refine/tests/util/TestUtils.java) before we got rid of the dependency, feel free to copy them).
 
 #### For functions {#for-functions}
 
 Before the migration, you had to explicitly define JSON serialization of functions with a `write` method. You should now override the getters returning the various documentation fields.
 
-Example: `Cos` function [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/expr/functions/math/Cos.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/master/main/src/com/google/refine/expr/functions/math/Cos.java).
+Example: `Cos` function [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/expr/functions/math/Cos.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/3.2/main/src/com/google/refine/expr/functions/math/Cos.java) and [now](https://github.com/OpenRefine/OpenRefine/blob/master/modules/grel/src/main/java/com/google/refine/expr/functions/math/Cos.java)
 
 #### For operations {#for-operations}
 
@@ -143,28 +149,27 @@ Before the JSON migration we refactored engine-dependent operations so that the 
 
 Note that you do not need to explicitly serialize the operation type, this is already done for you by `AbstractOperation`.
 
-Example: `ColumnRemovalOperation` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/operations/column/ColumnRemovalOperation.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/master/main/src/com/google/refine/operations/column/ColumnRemovalOperation.java).
+Example: `ColumnRemovalOperation` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/operations/column/ColumnRemovalOperation.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/3.2/main/src/com/google/refine/operations/column/ColumnRemovalOperation.java) and [now](https://github.com/OpenRefine/OpenRefine/blob/master/main/src/com/google/refine/operations/column/ColumnRemovalOperation.java)
 
 #### For changes {#for-changes}
 
 Changes are serialized in plain text but often relies on JSON serialization for parts of the data. Just use the methods above with `ParsingUtilities.mapper` to maintain this behaviour.
 
-Example: `ReconChange` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/model/changes/ReconChange.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/master/main/src/com/google/refine/operations/column/ColumnRemovalOperation.java).
+Example: `ReconChange` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/model/changes/ReconChange.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/3.2/main/src/com/google/refine/model/changes/ReconChange.java) and [now](https://github.com/OpenRefine/OpenRefine/blob/master/modules/core/src/main/java/com/google/refine/model/changes/ReconChange.java)
 
 #### For importers {#for-importers}
 
 The importing options have been migrated from `JSONObject` to `ObjectNode`. Your compiler should help you propagate this change. Utility functions in `JSONUtilities` have been migrated to Jackson so you should have minimal changes if you used them.
 
-Example: `TabularImportingParserBase` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/importers/TabularImportingParserBase.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/master/main/src/com/google/refine/importers/TabularImportingParserBase.java).
+Example: `TabularImportingParserBase` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/importers/TabularImportingParserBase.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/3.2/main/src/com/google/refine/importers/TabularImportingParserBase.java) and [now](https://github.com/OpenRefine/OpenRefine/blob/master/modules/core/src/main/java/com/google/refine/importers/TabularImportingParserBase.java)
 
 #### For overlay models {#for-overlay-models}
 
 Migrate serialization and deserialization as for other objects.
 
-Example: `WikibaseSchema` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/extensions/wikidata/src/org/openrefine/wikidata/schema/WikibaseSchema.java#L203) and [after](https://github.com/OpenRefine/OpenRefine/blob/master/extensions/wikidata/src/org/openrefine/wikidata/schema/WikibaseSchema.java#L60)
-
+Example: `WikibaseSchema` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/extensions/wikidata/src/org/openrefine/wikidata/schema/WikibaseSchema.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/3.2/extensions/wikidata/src/org/openrefine/wikidata/schema/WikibaseSchema.java) and [now](https://github.com/OpenRefine/OpenRefine/blob/master/extensions/wikibase/src/org/openrefine/wikibase/schema/WikibaseSchema.java)
 #### For preference values {#for-preference-values}
 
 Any class that is stored in OpenRefine's preference now needs to implement the `com.google.refine.preferences.PreferenceValue` interface. The static `load` method and the `write` method used previously for deserialization should be deleted and regular Jackson serialization and deserialization should be implemented instead. Note that you do not need to explicitly serialize the class name, this is already done for you by the interface.
 
-Example: `TopList` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/preference/TopList.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/master/main/src/com/google/refine/preference/TopList.java)
+Example: `TopList` [before](https://github.com/OpenRefine/OpenRefine/blob/3.1/main/src/com/google/refine/preference/TopList.java) and [after](https://github.com/OpenRefine/OpenRefine/blob/3.2/main/src/com/google/refine/preference/TopList.java) and [now](https://github.com/OpenRefine/OpenRefine/blob/master/modules/core/src/main/java/com/google/refine/preference/TopList.java)

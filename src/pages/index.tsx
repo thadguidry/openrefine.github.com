@@ -18,12 +18,16 @@ function HeaderSection() {
         <div className="col" style={{marginTop: '2em' }}>
           <h1>OpenRefine</h1>
           <p>OpenRefine is a powerful free, open source tool for working with messy data: cleaning it; transforming it from one format into another; and extending it with web services and external data.</p>
+          <p>Our goal is to empower everyone to meaningfully engage with data by providing an accessible open source tool and nurturing a diverse, supportive community.</p>
           <Link className="button button--primary" to="download" style={{fontSize: '1.5em'}}>Download</Link>
         </div>
         <div className="col" style={{marginTop: '1em', display: 'flex'}}>
           <img src="img/openrefine_logo.svg" alt="OpenRefine logo" style={{maxWidth: "min(250px, 20vw)", display: 'block', margin: 'auto'}}/>
         </div>
       </div>
+     <div>
+      <Link className="button button--primary" to="https://forms.gle/EAqF1uYyDNsoaPyz8" style={{fontSize: '1.5em'}}>💎 Participate in the 2026 user survey ✨</Link>
+    </div>
       <div className="row">
         <div style={{textAlign: 'center', width: '100%', marginTop: '2em'}}>
         <h2>Main features</h2>
