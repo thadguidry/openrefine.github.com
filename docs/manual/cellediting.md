@@ -57,7 +57,7 @@ You can also convert cells into null values or empty strings. This can be useful
 
 ## Fill down and blank down {#fill-down-and-blank-down}
 
-Fill down and blank down are two functions most frequently used when encountering data organized into [records](exploring#row-types-rows-vs-records) - that is, multiple rows associated with one specific entity. 
+Fill down and blank down are two functions most frequently used when encountering data organized into [records](exploring.md#rows-vs-records) - that is, multiple rows associated with one specific entity.
 
 If you receive information in rows mode and want to convert it to records mode, the easiest way is to sort your first column by the value that you want to use as a unique records key, [make that sorting permanent](transforming#edit-rows), then blank down all the duplicates in that column. OpenRefine will retain the first unique value and erase the rest. Then you can switch from “Show as rows” to “Show as records” and OpenRefine will associate rows to each other based on the remaining values in the first column. 
 
@@ -125,7 +125,7 @@ The clustering pop-up window offers you two categories of clustering methods: 6 
 
 **Key collisions** are very fast and can process millions of cells in seconds:
 
-**<a name="fingerprinting">Fingerprinting</a>**
+##### Fingerprinting {#fingerprinting}
 
 Fingerprinting is the least likely to produce false positives, so it’s a  good place to start. It does the same kind of data cleaning behind the scenes that you might think to do manually:
 
@@ -136,41 +136,41 @@ Fingerprinting is the least likely to produce false positives, so it’s a  good
 - split up all strings (words) and sort them alphabetically (so
   “Zhenyi, Wang” becomes “wang zhenyi”).
 
-For an in-depth understanding of fingerprinting, check this [document](https://github.com/OpenRefine/OpenRefine/wiki/Clustering-In-Depth#fingerprint)
+For an in-depth understanding of fingerprinting, check this [document](../technical-reference/clustering-in-depth)
 
-**<a name="n-gram">N-gram Fingerprinting</a>**
+##### N-gram Fingerprinting {#n-gram}
 
 N-gram fingerprinting allows you to set the _n_ value to whatever number you’d like and will create n-grams of _n_ size (after doing some cleaning), alphabetize them, then join them back together into a  fingerprint.
 
-**For example**, a 1-gram fingerprint will simply organize all the letters in the cell into alphabetical order - by creating segments one character in length. A 2-gram fingerprint will find all the two-character segments, remove duplicates, alphabetize them, and join them back together (for example, “banana” generates “ba an na an na,” which becomes “anbana”).
+For example, a 1-gram fingerprint will simply organize all the letters in the cell into alphabetical order - by creating segments one character in length. A 2-gram fingerprint will find all the two-character segments, remove duplicates, alphabetize them, and join them back together (for example, “banana” generates “ba an na an na,” which becomes “anbana”).
 
 This can help match cells that have typos, or incorrect spaces (such as matching “lookout” and “look out,” which fingerprinting itself won’t identify because it separates words). The higher the _n_ value, the fewer clusters will be identified. With 1-grams, keep an eye out for mismatched values that are near-anagrams of each other (such as “Wellington” and “Elgin Town”).
 
-For an in-depth understanding of N-gram fingerprinting, check this [document](https://github.com/OpenRefine/OpenRefine/wiki/Clustering-In-Depth#n-gram-fingerprint)
+For an in-depth understanding of N-gram fingerprinting, check this [document](../technical-reference/clustering-in-depth#n-gram-fingerprint)
 
-**<a name="phonetic-clustering">Phonetic Clustering</a>**
+##### Phonetic Clustering {#phonetic-clustering}
 
 The next four methods are phonetic algorithms: they identify letters that sound the same when pronounced out loud, and assess text values based on that (such as knowing that a word with an “S” might be a mistype of a word with a “Z”). They are great for spotting mistakes made by not knowing the spelling of a word or name after hearing it spoken aloud.
 
-**<a name="metaphone3-fingerprinting">Metaphone3 Fingerprinting</a>**
+##### Metaphone3 Fingerprinting {#metaphone3-fingerprinting}
 
 Metaphone3 fingerprinting is an English-language phonetic algorithm. For example, “Reuben Gevorkiantz” and “Ruben Gevorkyants” share the same phonetic fingerprint in English.
 
-**<a name="cologne-fingerprinting">Cologne Fingerprinting</a>**
+##### Cologne Fingerprinting {#cologne-fingerprinting}
 
 Cologne fingerprinting is another phonetic algorithm, but for German pronunciation.
 
-**<a name="daitch-mokotoff">Daitch-Mokotoff</a>**
+##### Daitch-Mokotoff {#daitch-mokotoff}
 
 Daitch-Mokotoff is a phonetic algorithm for Slavic and Yiddish words, especially names.
 
-**<a name="baider-morse">Baider-Morse</a>**
+##### Baider-Morse {#baider-morse}
 
 Baider-Morse is a version of Daitch-Mokotoff that is slightly more strict.
 
 Regardless of the language of your data, applying each of them might find different potential matches: for example, Metaphone clusters “Cornwall” and “Corn Hill” and “Green Hill,” while Cologne clusters “Greenvale” and “Granville” and “Cornwall” and “Green Wall.”
 
-For an in-depth understanding of phonetics, check this [document](https://github.com/OpenRefine/OpenRefine/wiki/Clustering-In-Depth#phonetic-fingerprint)
+For an in-depth understanding of phonetics, check this [document](../technical-reference/clustering-in-depth#phonetic-fingerprint)
 
 #### Nearest Neighbor {#nearest-neighbor}
 
@@ -182,17 +182,44 @@ We recommend setting the block number to at least 3, and then increasing it if y
 
 **Note** that bigger block values will take much longer to process, while smaller blocks may miss matches. Increasing the radius will make the matches more lax, as bigger differences will be clustered.
 
-**<a name="levenshtein-distance">Levenshtein Distance</a>**
+#### Levenshtein Distance {#levenshtein-distance}
 
 Levenshtein distance counts the number of edits required to make one value perfectly match another. As in the key collision methods above, it will do things like change uppercase to lowercase, fix whitespace, change special characters, etc. Each character that gets changed counts as 1 “distance.” “New York” and “newyork” have an edit distance value of 3 (“N” to “n”; “Y” to “y”; remove the space).
 
 It can do relatively advanced edits, such as understanding the distance between “M. Makeba” and “Miriam Makeba” (5), but it may create false positives if these distances are greater than other, simpler transformations (such as the one-character distance to “B. Makeba,” another person entirely).
 
-**<a name="ppm">PPM (Prediction by Partial Matching)</a>**
+#### PPM {#ppm}
 
 PPM (Prediction by Partial Matching) uses compression to see whether two values are similar or different. In practice, this method is very lax even for small radius values and tends to generate many false positives, but because it operates at a sub-character level it is capable of finding substructures that are not easily identifiable by distances that work at the character level. So it should be used as a “last resort” clustering method. It is also more effective on longer strings than on shorter ones.
 
-For more of the theory behind clustering, see [Clustering In Depth](https://github.com/OpenRefine/OpenRefine/wiki/Clustering-In-Depth).
+For more of the theory behind clustering, see [Clustering In Depth](../technical-reference/clustering-in-depth).
+
+### Custom clustering methods {#custom-clustering-methods}
+
+Custom Clustering in OpenRefine allows you to define your own rules for grouping similar data, ensuring that your data clustering is accurate and tailored to your specific needs. This feature is particularly useful when the built-in methods do not perfectly suit your data, allowing you to experiment with new ways to group data and unlock more meaningful insights.
+
+Custom clustering functions are created using scripting languages like GREL, Jython, or Clojure. These functions define how data should be clustered either by:
+- Keying: Assigning a group (or key) to a data value.
+- Distance: Measuring the similarity (or difference) between two data values.
+
+To try the feature:
+
+1. Go to the Clustering interface.
+2. Click the <span class="menuItems">Manage clustering functions</span> button to open the custom clustering functions dialog.
+3. Choose either the <span class="menuItems">Keying</span> or <span class="menuItems">Distance</span> tab based on the type of function you want to create.
+4. Click the <span class="menuItems">Add new function</span> button.
+5. Give your function a name.
+6. Write your expression using GREL, Jython, or Clojure.
+7. Use the <span class="menuItems">Expression preview</span> and <span class="menuItems">Clusters preview</span> tabs to see how your function works in real-time, adjusting as needed.
+8. Save your function and close the dialog.
+
+Your custom functions will then appear in the dropdown menu under keying or distance options. Select the function you added, and it will be applied to your data.
+
+Say you want to cluster song titles in English which sometimes differ because of included or omitted articles (such as "the" or "a"). For instance, you could have values such as `The Peanut Vendor`, `Peanut Vendor (The)` and `Peanut Vendor`. OpenRefine's default fingerprinting function successfully maps `The Peanut Vendor` and `Peanut Vendor (The)` to the same value `peanut the vendor` (by removing punctuation and re-ordering words), but `Peanut Vendor` is mapped to `peanut vendor`, failing to cluster it with the other values. You could use a custom keying function which filters out articles from the fingerprint value: `filter(value.fingerprint().split(" "), word, (word != "the").and(word != "a").and(word != "an")).join(" ")`. This will map all three values to the same clustering key `peanut vendor`.
+
+Nearest neighbors with the Levenshtein distance counts the number of changes between two values, but does not relate this number of changes to the lengths of strings. For instance `Fong` and `Fang` have distance 1, but `Sinéad O'Connor` and `Sinéad M. O'Connor` have distance 3, although they are intuitively more similar. When clustering sets of strings with widely varying lengths, it can be useful to normalize this number of changes by the lengths of the strings. This can be achieved with a custom distance such as `levenshteinDistance(value1, value2) / (max(length(value1), length(value2)) + 1)`. With such an expression, the distance between `Fong` and `Fang` becomes 0.2, whereas `Sinéad O'Connor` and `Sinéad M. O'Connor` are at distance 0.16.
+
+For more details on built-in clustering functions, see [Clustering In Depth](../technical-reference/clustering-in-depth).
 
 ## Replace {#replace}
 

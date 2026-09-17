@@ -6,13 +6,22 @@ hide_table_of_contents: false
 
 # Release notes
 
+## Version 3.9
+
+See:
+* the [3.9.0 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.9.0)
+* the [3.9-beta1 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.9-beta1)
+
 ## Version 3.8
 
 See:
-* the [3.8-beta1 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8-beta1)
-* the [3.8-beta5 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8-beta5) (intermediate version numbers have been skipped)
-* the [3.8.0 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8.0)
+* the [3.8.7 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8.7)
+* the [3.8.4 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8.4)
+* the [3.8.2 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8.2)
 * the [3.8.1 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8.1)
+* the [3.8.0 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8.0)
+* the [3.8-beta5 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8-beta5) (intermediate version numbers have been skipped)
+* the [3.8-beta1 release page](https://github.com/OpenRefine/OpenRefine/releases/tag/3.8-beta1)
 
 ## Version 3.7
 
@@ -95,7 +104,7 @@ See:
 ### For developers
 
 * Some column metadata fields, which had never been exposed in the UI, have been removed ([#5276](https://github.com/OpenRefine/OpenRefine/pull/5276))
-* A new [extension point to customize cell rendering](https://openrefine.org/docs/technical-reference/writing-extensions#cell-renderers) was introduced ([#5154](https://github.com/OpenRefine/OpenRefine/issues/5154))
+* A new [extension point to customize cell rendering](/docs/technical-reference/writing-extensions#cell-renderers) was introduced ([#5154](https://github.com/OpenRefine/OpenRefine/issues/5154))
 
 ## Version 3.6
 

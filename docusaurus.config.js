@@ -3,9 +3,11 @@ export default async function createConfigAsync() {
 return {
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
   },
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
   onBrokenAnchors: 'warn',
   title: 'OpenRefine',
   tagline: 'A power tool for working with messy data.',
@@ -44,6 +46,11 @@ return {
           to: 'blog',
           label: 'Blog',
           position: 'left',
+        },
+        {
+          to: 'https://store.openrefine.org/',
+          label: 'Store',
+          position: 'right',
         },
         {
           to: '/donate',
@@ -100,6 +107,10 @@ return {
               label: 'Ecosystem',
               href: '/ecosystem',
             },
+            {
+              label: 'Merchandising Store',
+              href: 'https://store.openrefine.org/',
+            },
           ],
         },
         {
@@ -114,9 +125,13 @@ return {
               href: '/external_resources',
             },
             {
+              label: 'Roadmap',
+              href: '/docs/technical-reference/development-roadmap',
+            }, 
+            {
               label: 'Contributing',
               href: '/docs/technical-reference/contributing',
-            },     
+            },        
             {
               label: 'Privacy notice',
               href: '/privacy',
@@ -126,6 +141,10 @@ return {
        {
           title: 'About OpenRefine',
           items: [
+            {
+              label: 'Mission and Vision',
+              href: '/mission_vision',
+            },
             {
               label: 'Project history',
               href: '/openrefine_history',
@@ -164,6 +183,10 @@ return {
               href: 'https://twitter.com/openrefine',
             },
             {
+              label: 'YouTube',
+              href: 'https://www.youtube.com/@OpenRefineProject',
+            },
+            {
               html: `
                   <a rel="me" class="footer__link-item" target="_blank" href="https://fosstodon.org/@OpenRefine">Mastodon<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_node_modules-@docusaurus-theme-classic-lib-theme-Icon-ExternalLink-styles-module"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a>
                 `
@@ -179,6 +202,13 @@ return {
     [
       '@docusaurus/preset-classic',
       {
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
         docs: {
           // Docs folder path relative to website dir. Equivalent to `customDocsPath`.
           // path: 'docs',
@@ -198,9 +228,20 @@ return {
         },
         blog: {
           blogSidebarCount: 'ALL',
+          onInlineAuthors: 'ignore',
+          onUntruncatedBlogPosts: 'ignore'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        svgr: {
+          svgrConfig: {
+            // Your SVGR options ...
+            svgoConfig: {
+              // Your SVGO options ...
+              // Use "svgoConfig: undefined" to use a svgo.config.js file
+            },
+          },
         },
       },
     ],
