@@ -52,8 +52,8 @@ function DownloadSection(props) {
    return <div>
         <DownloadLink version={version} platform={platform} autoDownload={autoDownload} />
         {explanations}
-        <p>If you are upgrading from an earlier version, make sure to <Link to="docs/manual/installing#back-up-your-data">back up your workspace directory</Link> first.</p>
-        <p>Check out our detailed guide on <a href="docs/manual/installing#install-or-upgrade-openrefine">Installing OpenRefine</a> for detailed instructions.</p>
+        <p>If you are upgrading from an earlier version, make sure to <Link to="/docs/manual/installing#back-up-your-data">back up your workspace directory</Link> first.</p>
+        <p>Check out our detailed guide on <Link to="/docs/manual/installing#install-or-upgrade-openrefine">Installing OpenRefine</Link> for detailed instructions.</p>
     </div>;
 }
 
@@ -99,9 +99,9 @@ export function getRunningInstructions(platform) {
          <p>Open the downloaded DMG file, drag the icon into the <code>Applications</code> folder, and double-click on it.</p>
          <Admonition className='margin-top--md' type='info' title='Important'>
            See our documentation for {' '}
-           <a href="docs/manual/installing#install-or-upgrade-openrefine">
+           <Link to="/docs/manual/installing#install-or-upgrade-openrefine">
              how to circumvent security warnings
-           </a> when opening the DMG file.
+           </Link> when opening the DMG file.
          </Admonition>
        </>
       )
