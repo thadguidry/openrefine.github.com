@@ -77,8 +77,8 @@ xychart-beta
     line [3,2,2,2,3,3,1,6,12,7,18,15,15,10,10,10,7]
 ```
 (*) 2026 data are up to July 16, 2026.
-[^1]: From [this page](https://forum.openrefine.org/admin/reports/new_contributors?end_date=2026-07-16&mode=table&start_date=2025-07-16) with discourse admin priviledge
+[^1]: From [this page](https://forum.openrefine.org/admin/reports/new_contributors?end_date=2026-07-16&mode=table&start_date=2025-07-16) with discourse admin privilege
 [^2]: See the count of users on [this page](https://forum.openrefine.org/u?order=likes_received&period=all)
-[^3]: From [this page](https://forum.openrefine.org/admin/reports/topics?start_date=2025-07-16&end_date=2026-07-16&mode=table) with discourse admin priviledge
-[^4]: From [this page](https://forum.openrefine.org/admin/reports/posts?start_date=2025-07-16&end_date=2026-07-16&mode=table) with discourse admin priviledge
+[^3]: From [this page](https://forum.openrefine.org/admin/reports/topics?start_date=2025-07-16&end_date=2026-07-16&mode=table) with discourse admin privilege
+[^4]: From [this page](https://forum.openrefine.org/admin/reports/posts?start_date=2025-07-16&end_date=2026-07-16&mode=table) with discourse admin privilege
 [^5]: We are counting the number of contributor using the following command `git log --all --pretty="%an" | sort | uniq | wc -l`
