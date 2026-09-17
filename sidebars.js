@@ -34,12 +34,13 @@ module.exports = {
     'technical-reference/contributing',
     'technical-reference/why-get-involved',
     'technical-reference/github',
+    'technical-reference/translating-ui',
+    'technical-reference/documentation-contributions',
     {
     type: 'category',
     label: 'Contributing as a developer',
     items: [
         'technical-reference/code-contributions',
-        'technical-reference/translating-ui',
         'technical-reference/build-test-run',
         'technical-reference/functional-tests',
         {
@@ -57,6 +58,7 @@ module.exports = {
             type: 'category',
             label: 'Extensions',
             items: [
+            'technical-reference/extension-dev-guidelines',
             'technical-reference/writing-extensions',
             'technical-reference/migrating-older-extensions',
             'technical-reference/wikibase/architecture'
@@ -88,9 +90,17 @@ module.exports = {
           'technical-reference/resources',
       ]
       },
-
-      'technical-reference/documentation-contributions',
-      'technical-reference/development-roadmap',
+      {
+      type: 'category',
+      label: 'OpenRefine Roadmap',
+      items: [
+          'technical-reference/development-roadmap',
+          'technical-reference/about-goal-posts',
+          'technical-reference/goal-posts',
+          'technical-reference/extension-ideas',
+          'technical-reference/wikimedia-goal-posts',
+      ]
+      },
   ],
   },
 };

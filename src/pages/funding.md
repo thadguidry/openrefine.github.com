@@ -1,20 +1,23 @@
 ---
-title: OpenRefine's funding sources
-description: OpenRefine seeks grants to support its work. Learn how individuals and organizations can financially contribute to further OpenRefine's mission.
+title: Funding
+description: How OpenRefine is financed—grants, institutional support, and community contributions
+hide_table_of_contents: false
 ---
 
-# OpenRefine's funding sources
+# Project Funding Overview
 
-OpenRefine relies on a combination of [volunteer contributions](/docs/technical-reference/contributing) and financial support to sustain its development.
+OpenRefine relies on a combination of volunteer contributions and financial support to sustain its development. This diversified funding keeps our core team in place, supports essential infrastructure, and enables strategic community outreach.
 
-We maintain a small paid team to ensure the project's long-term viability. The team includes:
-- One full-time developer
-- One part-time project manager
-- Other contractors as needed
+## Operating Budget
 
-Additionally, we utilize funds for internships, maintaining software subscriptions (e.g., Figma, Discourse, LimeSurvey), and the domain openrefine.org.
+We are seeking your support to fund OpenRefine's core team, a small group of part-time staff who maintain the project's infrastructure, respond to community needs, review and guide volunteer contributors, handle security reports, and steward the ecosystem of extensions and reconciliation services. 
 
-This page outlines our various sources of funding and how you can contribute financially.
+Our annual operating budget is **US$50,000**, covering:
+* US $2,500 per month for project coordination
+* US $20,000 per year for community support including event organization and essential software licenses (Figma and Discourse)
+* 15% of donations to our fiscal sponsor, Code for Science and Society, to handle administration and compliance
+
+Additional funding enables us to organize community events, conduct outreach efforts, and undertake special projects. OpenRefine maintains a [curated list of goalposts](/docs/technical-reference/development-roadmap) based on the interests and priorities of our community. We are currently seeking resources to achieve them. You can help by forming partnerships between your organization and OpenRefine or providing financial support.
 
 ## Individual and corporate donations
 
@@ -23,8 +26,10 @@ OpenRefine is a fiscally sponsored project of [Code for Science & Society](https
 **Ways to donate:**
 
 - [GitHub sponsorship](https://github.com/sponsors/OpenRefine)
-- [Online form](https://openrefine.org/donate) for Credit Card, PayPal, and Bank Transfer (up to USD 25,000)
+- [Online form](/donate) for Credit Card, PayPal, and Bank Transfer (up to USD 25,000)
 - Via Code for Science & Society from [their donation page](https://www.codeforsociety.org/donate) for larger donations.
+
+We would like to thanks our [current donors](/backers).
 
 ## Grants
 
@@ -32,41 +37,58 @@ Since 2018, OpenRefine has relied on grants to sustain its development. Below, y
 
 ### Applying
 
-OpenRefine is actively applying to grant opportunities listed in this section. We will update this section with the latest information as we progress.
-If you're interested in partnering with us for a grant, [contact us](https://forum.openrefine.org/). 
+OpenRefine is currently actively applying to the following opportunities. If you're interested in partnering with us for a grant, [contact us](https://forum.openrefine.org/). 
 
-### Current grants
-
-OpenRefine is currently working on the following grants. 
-
-#### 2023 Wikimedia Foundation 
-* **CS&S code**: `ORefine: 23 Wikimedia`
-* **Status**: Awarded - Current
-* **Amount**: USD 50,000
-* **Source**: [Wikimedia Foundation Funds](https://meta.wikimedia.org/wiki/Grants:Start)
-* **Start date**: June 2023
-* **End date**: June 2024
+#### 2026 Open Source for the Life Sciences
+* **Status**: Pending
+* **Amount**: USD 249,866
+* **Source**: [Open Source for the Life Sciences](https://os4science.org/funding_opportunity/os4ls/)
+* **Start date**: December 2026
+* **End date**: December 2029
 * **Relevant links**: 
-  * [Grant application](/uploads/2023-Wikimedia.pdf) and on [Wikimedia's Meta-Wiki](https://meta.wikimedia.org/wiki/Grants:Project/CS%26S/Structured_Data_on_Wikimedia_Commons_functionalities_in_OpenRefine)
-  * [Commons:OpenRefine/Train-the-trainer program 2023-24](https://commons.wikimedia.org/wiki/Commons:OpenRefine/Train-the-trainer_program_2023-24)
-  * [Blog Post: Wikimedia-OpenRefine training and sustainability project](/blog/2023/07/26/Wikimedia-Commons-Training-Grant)
-  
+  * [Letter of Intent](/uploads/2026-OS4LS-LOI.pdf) 
+  * [Grant application](/uploads/2026-OS4LS-Application.pdf)
+  * [Forum thread](https://forum.openrefine.org/t/funding-opportunity-os4ls-proposal-around-openrefine-for-life-science-data-curation/2816/)
+
+### Active Grants
+
+OpenRefine is not currently working any grants. 
+
+### Completed Grants
+
+OpenRefine completed the following grants. 
+
 #### 2022 EOSS-5 
-* **CS&S code**: `ORefine: 22 SVCF - 2022-252591`
-* **Status**: Awarded - Current
+* **CS&S code**: `10016 ORefine: 22 SVCF 2022-252591`
+* **Status**: Awarded - Completed
 * **Amount**: USD 310,100 (USD 155,050 per year for two years)
 * **Source**: [Chan-Zuckerberg Initiative](https://chanzuckerberg.com/grants-ventures/grants/)
 * **Start date**: January 2023
-* **End date**: December 2024
+* **End date**: December 2025 (extended from October 2024)
 * **Relevant links**: 
   * [Letter of intent](/uploads/2022-EOSS5-LOI.pdf)
   * [Grant application](/uploads/2022-EOSS5.pdf)
   * [Blog Post: OpenRefine funded to improve its reproducibility](/blog/2022/12/30/eoss5)
-  * [On CZI's Website](https://chanzuckerberg.com/eoss/proposals/improving-openrefines-reproducibility/)
+  * [On CZI's Website](https://chanzuckerberg.com/eoss/proposals/improving-openrefines-reproducibility/) 
+  * [2024 interim report](/uploads/2024-EOSS5-Interim-Report.pdf)
+  * [2026 final report](/uploads/2026-EOSS-5-Final-Report.pdf)
 
+#### 2023 Wikimedia Foundation 
+* **CS&S code**: `ORefine: 23 Wikimedia`
+* **Status**: Awarded - Completed
+* **Amount**: USD 50,000
+* **Source**: [Wikimedia Foundation Funds](https://meta.wikimedia.org/wiki/Grants:Start)
+* **Start date**: June 2023
+* **End date**: December 2024
+* **Relevant links**: 
+  * [Grant application](/uploads/2023-Wikimedia.pdf) and on [Wikimedia's Meta-Wiki](https://meta.wikimedia.org/wiki/Grants:Project/CS%26S/Structured_Data_on_Wikimedia_Commons_functionalities_in_OpenRefine)
+  * [Commons:OpenRefine/Train-the-trainer program 2023-24](https://commons.wikimedia.org/wiki/Commons:OpenRefine/Train-the-trainer_program_2023-24)
+  * [Blog Post: Wikimedia-OpenRefine training and sustainability project](/blog/2023/07/26/Wikimedia-Commons-Training-Grant)
+  * [Final Report](https://forum.openrefine.org/t/wikimedia-commons-training-and-documentation-grant-final-report-ready/1611)
+  
 #### 2021 EOSS-Diversity 
 * **CS&S code**: `ORefine: 21 SVCF - 2021-237149 OR for Everyone`
-* **Status**: Awarded - Current
+* **Status**: Awarded - Completed
 * **Amount**: USD 240,000 (USD 120,000 per year for two years)
 * **Source**: [Chan-Zuckerberg Initiative](https://chanzuckerberg.com/grants-ventures/grants/)
 * **Start Date**: September 2021
@@ -74,15 +96,11 @@ OpenRefine is currently working on the following grants.
 * **Relevant link**: 
   * [Grant application](/uploads/2021-EOSS-Diversity.pdf)
   * [2023 interm report](/uploads/2023-EOSS-Diversity-Interim-Report.pdf)
-  
-
-### Completed Grants
-
-OpenRefine completed the following grants. 
+  * [2024 final report](/uploads/2024-EOSS-Diversity-Final-Report.pdf)
 
 #### 2023 NFDI
 * **CS&S code**: `ORefine: General`
-* **Status**: Awarded - Current
+* **Status**: Awarded - Completed
 * **Amount**: EUR 10,000
 * **Source**: [NFDI4Culture](https://nfdi4culture.de/)
 * **Start date**: August 2023
@@ -121,7 +139,7 @@ OpenRefine completed the following grants.
 * **Relevant links**: 
   * [Grant application](/uploads/czi-eoss-proposal.pdf)
   * [On CZI's website](https://chanzuckerberg.com/eoss/proposals/scaling-openrefine/)
-  * [OpenRefine blogpost](https://openrefine.org/blog/2019/11/14/2019-11-14)
+  * [OpenRefine blogpost](/blog/2019/11/14/2019-11-14)
   
 #### 2018 Google News Initiative
 * **Status**: Awarded - Completed
@@ -135,6 +153,86 @@ OpenRefine completed the following grants.
 ### Unsuccessful applications
 
 We applied for the following grant opportunities, but our proposals were not selected. 
+
+#### 2026 OTF
+* **Status**: Pending
+* **Amount**: USD 92,500
+* **Source**: [Free and Open Source Software Sustainability Fund](https://www.opentech.fund/funds/free-and-open-source-software-sustainability-fund/)
+* **Start date**: October 2026
+* **End date**: October 2027
+* **Relevant links**: 
+  * [Concept Note](/uploads/2026-OTF.pdf) 
+  * [Forum thread](https://forum.openrefine.org/t/funding-opportunity-otf-foss-sustainability-fund/2793)
+
+
+#### 2026 Sovereign Tech Fellowship
+* **Status**: Not Awarded
+* **Amount**: EUR 20,020
+* **Source**: [Sovereign Tech Fellowship](https://www.sovereign.tech/programs/fellowship)
+* **Start date**: June 2026
+* **End date**: May 2027
+* **Relevant links**: 
+  * [Grant application](/uploads/2026-Sovereign-Tech-Fund.pdf) 
+  * [Forum thread](https://forum.openrefine.org/t/funding-opportunity-sovereign-tech-fellowship-application-community-coordination-and-governance/2758)
+
+#### 2026 SLOAN LOI
+* **Status**: Not Awarded
+* **Amount**: USD 150,000
+* **Source**: Following Sloan invitation to submit a [Letter of Inquiry](https://sloan.org/grants/apply#tab-letters-of-inquiry)
+* **Relevant links**: 
+  * [Letter of Inquiry](/uploads/2026-SLOAN-LOI.pdf)
+  * [Forum thread](https://forum.openrefine.org/t/funding-opportunity-2025-sloan-letter-of-interest/2643)
+
+#### 2025 NLNet: Hardening OpenRefine’s Extension Architecture
+* **Status**: Not Awarded
+* **Amount**: EUR 49,881.25
+* **Source**: [NGI Zero Commons Fund](https://nlnet.nl/commonsfund/)
+* **Start date**: January 2026
+* **End date**: August 2026
+* **Relevant links**: 
+  * [Grant application](/uploads/2025-NLNet-hardening-extension.pdf) 
+  * [Forum thread](https://forum.openrefine.org/t/2025-nlnet-ngi-zero-commons-fund/2381)
+  
+#### 2025 NLNet: Native In-App Reconciliation of Arbitrary Local Data Sets 
+* **Status**: Not Awarded
+* **Amount**: EUR 49,961.75
+* **Source**: [NGI Zero Commons Fund](https://nlnet.nl/commonsfund/)
+* **Start date**: January 2026
+* **End date**: August 2026
+* **Relevant links**: 
+  * [Grant application](/uploads/2025-NLNet-in-app-recon.pdf) 
+  * [Forum thread](https://forum.openrefine.org/t/2025-nlnet-ngi-zero-commons-fund/2381)
+
+#### 2025 Digital Science Catalyst Grant
+* **Status**: Not Awarded
+* **Amount**: GBP 25,000
+* **Source**: [Digital Science Catalyst Grant.](https://www.digital-science.com/investment/catalyst-grant)
+* **Start date**: January 2026
+* **End date**: August 2026
+* **Relevant links**: 
+  * [Grant application](/uploads/2025-Catalyst-Grant.pdf)
+  * [Forum thread](https://forum.openrefine.org/t/funding-opportunity-2025-digital-science-catalyst-grant/2574)
+  
+#### 2025 Research Software Maintenance Fund
+* **Status**: Not Awarded
+* **Amount**: up to GBP 500,000 available in partnership with other organizations.
+* **Source**: [Research Software Maintenance Fund](https://www.software.ac.uk/programmes/research-software-maintenance-fund)
+* **Start date**: January 2026
+* **End date**: Februay 2028
+* **Relevant links**: 
+  * [Expression of Interest](/uploads/2025-Research-Software-Maintenance-Fund-EOI.pdf) 
+  * [Forum thread](https://forum.openrefine.org/t/funding-opportunity-seeking-ukri-eligible-partner-for-research-software-maintenance-fund-application/2233)
+
+#### 2024 Wikimedia Foundation 
+* **Status**: Not Awarded
+* **Amount**: asking for USD 69,758
+* **Source**: [Wikimedia Foundation Funds](https://meta.wikimedia.org/wiki/Grants:Start).
+* **Start date**: January 2025
+* **End date**: December 2025
+* **Relevant links**:
+   * [Call for proposal](https://meta.wikimedia.org/wiki/Grants:Programs/Wikimedia_Community_Fund/General_Support_Fund)
+   * [Forum Discussion](https://forum.openrefine.org/t/grant-opportunity-wikimedia-community-fund/1728)
+   * [Grant application](https://meta.wikimedia.org/wiki/Grants:Programs/Wikimedia_Community_Fund/General_Support_Fund/Maintenance_of_OpenRefine_and_its_Wikimedia-related_extensions.)
 
 #### 2024-DEF
 
@@ -175,4 +273,3 @@ We applied for the following grant opportunities, but our proposals were not sel
 * **Relevant links**: 
   * [Letter of intent](/uploads/2021-EOSS4-LOI.pdf)
   * [Grant application](/uploads/2021-EOSS4.pdf)
-  

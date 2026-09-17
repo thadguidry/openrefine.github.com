@@ -6,7 +6,7 @@ sidebar_label: Reconciling
 
 ## Overview {#overview}
 
-Reconciliation is the process of matching your dataset with that of an external source. Datasets for comparison might be produced by libraries, archives, museums, academic organizations, scientific institutions, non-profits, or interest groups. You can also reconcile against user-edited data on [Wikidata or other Wikibase instances](wikibase/reconciling), or reconcile against [a local dataset that you yourself supply](https://github.com/OpenRefine/OpenRefine/wiki/Reconcilable-Data-Sources#local-services). 
+Reconciliation is the process of matching your dataset with that of an external source.  Also known as [record linkage](https://en.wikipedia.org/wiki/Record_linkage), or data matching, it is an overall process that often involves other tasks such as entity resolution, data field matching (property matching) and [duplicate record detection](https://en.wikiversity.org/wiki/Duplicate_record_detection). Datasets for comparison might be produced by libraries, archives, museums, academic organizations, scientific institutions, non-profits, or interest groups. You can also reconcile against user-edited data on [Wikidata or other Wikibase instances](wikibase/reconciling), or reconcile against [a local dataset that you yourself supply](https://github.com/OpenRefine/OpenRefine/wiki/Reconcilable-Data-Sources#local-services). 
 
 To reconcile your OpenRefine project against an external dataset, that dataset must offer a web service that conforms to the [Reconciliation Service API standards](https://reconciliation-api.github.io/specs/0.1/). 
 
@@ -31,7 +31,7 @@ OpenRefine maintains a [further list of sources on the wiki](https://github.com/
 
 Other services may exist that are not yet listed in these two places: for example, the [310 datasets hosted by the Organized Crime and Corruption Reporting Project (OCCRP)](https://aleph.occrp.org/datasets/) each have their own reconciliation URL, or you can reconcile against their entire database with the URL [shared on the reconciliation API list](https://reconciliation-api.github.io/testbench/). For another example, you can reconcile against the entire Virtual International Authority File (VIAF) dataset, or [only the contributions from certain institutions](http://refine.codefork.com/). Search online to see if the authority you wish to reconcile against has an available service, or whether you can download a copy to reconcile against locally.
 
-OpenRefine includes Wikidata reconciliation in the installation package - see the [Wikibase](wikibase/reconciling) page for more information particular to that service. Extensions can add reconciliation services, and can also add enhanced reconciliation capacities. Check the list of extensions on the [Downloads page](https://openrefine.org/download.html) for more information.
+OpenRefine includes Wikidata reconciliation in the installation package - see the [Wikibase](wikibase/reconciling) page for more information particular to that service. Extensions can add reconciliation services, and can also add enhanced reconciliation capacities. Check the list of extensions on the [Downloads page](/download) for more information.
 
 Each source will have its own documentation on how it provides reconciliation. The table on [the reconciliation API list](https://reconciliation-api.github.io/testbench/) indicates whether your chosen service supports the features described below. Refer to the service's documentation if you have questions about its behaviors and which OpenRefine features it supports. 
 
@@ -211,7 +211,7 @@ Remember to set an appropriate throttle and to refer to the service documentatio
 
 ## Keep all the suggestions made {#keep-all-the-suggestions-made}
 
-To generate a list of each suggestion made, rather than only the best candidate, you can use a [GREL expression](expressions#GREL). Go to <span class="menuItems">Edit column</span> → <span class="menuItems">Add column based on this column</span>. To create a list of all the possible matches, use something like
+To generate a list of each suggestion made, rather than only the best candidate, you can use a [GREL expression](expressions.md). Go to <span class="menuItems">Edit column</span> → <span class="menuItems">Add column based on this column</span>. To create a list of all the possible matches, use something like
 
 ```
 forEach(cell.recon.candidates,c,c.name).join(", ")
@@ -236,7 +236,7 @@ OpenRefine supplies a number of variables related specifically to reconciled val
 * `cell.recon.judgmentHistory` (the values used in the “judgment action timestamp” facet)
 * `cell.recon.matched` (a “true” or “false” value)
 
-You can find out more in the [reconciliaton variables](expressions#reconciliaton-variables) section. 
+You can find out more in the [reconciliaton variables](expressions#reconciliation) section.
 
 :::tip Make a copy of a reconciled column
 
