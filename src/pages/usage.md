@@ -43,7 +43,7 @@ OpenRefine is used by many academics in their research and cited in their public
 %%{init: {'theme':'forest'}}%%
 xychart-beta
     title "Number of academic citations of OpenRefine per years"
-    x-axis [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026*]
+    x-axis [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, "2026*"]
     y-axis "Count of citation" 0 --> 1200
     bar [4, 67, 162, 251, 356, 424, 477, 502, 584, 571, 586, 727, 861, 893, 975, 1155, 511]
 ```
@@ -72,7 +72,7 @@ The following graphic represents the average number of active contributors to th
 ```mermaid 
 %%{init: {'theme':'forest'}}%%
 xychart-beta 
-    x-axis   [10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26*]
+    x-axis   [10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,"26*"]
     y-axis "Average number of GitHub contributors per month" 0 --> 22
     line [3,2,2,2,3,3,1,6,12,7,18,15,15,10,10,10,7]
 ```

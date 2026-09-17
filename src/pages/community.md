@@ -37,7 +37,7 @@ import Card from '../card.tsx';
 
 # Governance Model & Team Members
 
-Review [OpenRefine Governance on GitHub](https://github.com/OpenRefine/OpenRefine/blob/HEAD/GOVERNANCE.md).
+Review [OpenRefine Governance on GitHub](https://github.com/OpenRefine/OpenRefine/blob/master/GOVERNANCE.md).
 
 # Connect with us
 
